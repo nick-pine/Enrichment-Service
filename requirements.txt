@@ -1,0 +1,5 @@
+# LLM Alert Enrichment Service requirements
+python-dotenv
+pydantic
+requests
+opensearch-py

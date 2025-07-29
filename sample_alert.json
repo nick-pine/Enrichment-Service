@@ -1,0 +1,32 @@
+{
+  "@timestamp": "2025-07-29T16:45:00.000Z",
+  "rule": {
+    "level": 12,
+    "description": "Critical SSH brute force detected",
+    "id": "100001",
+    "firedtimes": 1,
+    "mail": false,
+    "groups": ["authentication", "ssh"],
+    "pci_dss": ["10.2.4"],
+    "mitre": {"T1110": ["Brute Force"]}
+  },
+  "agent": {
+    "id": "001",
+    "name": "wazuh-agent-01"
+  },
+  "manager": {
+    "name": "wazuh-manager-01"
+  },
+  "id": "alert-123456",
+  "full_log": "Multiple failed SSH login attempts detected from 192.168.1.100",
+  "decoder": {
+    "name": "sshd",
+    "parent": "auth"
+  },
+  "predecoder": {
+    "program_name": "sshd",
+    "timestamp": "2025-07-29T16:45:00.000Z",
+    "hostname": "wazuh-agent-01"
+  },
+  "location": "192.168.1.100/sshd"
+}

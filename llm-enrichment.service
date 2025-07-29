@@ -1,0 +1,18 @@
+[Unit]
+Description=LLM Alert Enrichment Service
+After=network.target wazuh-indexer.service
+
+[Service]
+Type=simple
+User=wazuh
+Group=wazuh
+WorkingDirectory=/opt/llm-alert-enrichment
+Environment=PATH=/opt/llm-alert-enrichment/venv/bin
+ExecStart=/opt/llm-alert-enrichment/venv/bin/python /opt/llm-alert-enrichment/enrichment_service_clean.py start
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

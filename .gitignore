@@ -1,0 +1,67 @@
+# Ignore environment variable files
+.env
+
+# Python cache and environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.*/__pycache__/
+.env
+.env.*
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Type checking and test cache
+.mypy_cache/
+.pytest_cache/
+
+# Coverage
+.coverage*
+
+# Databases
+*.sqlite3
+*.db
+
+# MCP Integration (paused)
+mcp_integration/
+
+# VS Code settings
+.vscode/
+
+# Jupyter and notebook files
+.ipynb_checkpoints/
+*.ipynb
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker artifacts
+*.log
+
+# Test and coverage
+.coverage
+htmlcov/
+
+# Build and dist
+build/
+dist/
+*.egg-info/
+
+# Project work log (local only)
+PROJECT_PROGRESS.md
+
+yay_rules/
+valhalla/rules.yar
+
+dead_letter_queue.jsonl
+
+# Wazuh installation files (large binary/script files)
+wazuh-install.sh
+wazuh-install-files.tar
+wazuh-install-files/
