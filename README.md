@@ -1,6 +1,6 @@
-# Enrichment Service
+# LLM Alert Enrichment Service
 
-A modular Python service for enriching security alerts using LLMs (Ollama, OpenAI, etc.), designed for maintainability, scalability, and easy integration with Wazuh Indexer/OpenSearch.
+A modular Python service for enriching security alerts using LLMs (Ollama), designed for maintainability, scalability, and easy integration with Wazuh Indexer/OpenSearch.
 
 ## Features
 - Modular architecture for clean code and easy extension
