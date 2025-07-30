@@ -1,8 +1,9 @@
-rule ExampleRule {
+ 
+rule AlwaysTrue {
     meta:
-        description = "Example YARA rule for demonstration purposes"
+        description = "Example rule that always matches, for testing only."
     strings:
-        $a = "malicious_string"
+        $example = "example"
     condition:
-        $a
+        true
 }
