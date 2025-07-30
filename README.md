@@ -10,45 +10,23 @@ A modular Python service for enriching security alerts using LLMs (Ollama), desi
 - Centralized configuration management
 - Pydantic schemas for validation
 
-## Quick Start
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Quickstart & Deployment
 
-2. **Configure environment:**
-   - Copy `.env.example` to `.env` and set your variables as needed.
+See [QUICKSTART.md](QUICKSTART.md) for step-by-step setup and deployment instructions.
 
-3. **Run the service:**
-   ```bash
-   python enrichment_service.py start
-   ```
+### Systemd Service (Recommended)
+- Automated install script sets up user, permissions, dependencies, and systemd unit
+- Service runs persistently and logs to `/var/log/llm-enrichment.log`
+- To check status: `sudo systemctl status llm-enrichment.service`
 
-4. **Test configuration:**
-   ```bash
-   python enrichment_service.py test
-   ```
-
-5. **Setup wizard:**
-   ```bash
-   python enrichment_service.py setup
-   ```
-
-6. **Push a test alert:**
-   ```bash
-   python enrichment_service.py push-alert --file sample_alert.json
-   ```
-
-## Usage
-
-- **Start the service:** `python enrichment_service.py start`
-- **Test configuration:** `python enrichment_service.py test`
-- **View status:** `python enrichment_service.py status`
-- **Run setup wizard:** `python enrichment_service.py setup`
-- **Auto setup:** `python enrichment_service.py auto`
-- **Push test alert:** `python enrichment_service.py push-alert --file sample_alert.json`
-- **Install as system service (Linux):** `python enrichment_service.py install-service`
+### Manual CLI Usage
+- Start the service: `python enrichment_service.py start`
+- Test configuration: `python enrichment_service.py test`
+- View status: `python enrichment_service.py status`
+- Run setup wizard: `python enrichment_service.py setup`
+- Auto setup: `python enrichment_service.py auto`
+- Push test alert: `python enrichment_service.py push-alert --file sample_alert.json`
 
 ## Development Notes
 - Main entry point is minimal (11 lines)

@@ -13,6 +13,9 @@ if ! id -u wazuh >/dev/null 2>&1; then
     sudo useradd -m wazuh
 fi
 
+# Install Python dependencies system-wide for service
+sudo pip3 install -r requirements.txt
+
 # Set ownership of the project directory
 sudo chown -R wazuh:wazuh /home/user/Enrichment-Service
 sudo chmod o+x /home/user
