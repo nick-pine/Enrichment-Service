@@ -21,8 +21,7 @@ fi
 # Prompt for Wazuh Indexer password and update .env
 if grep -q '^WAZUH_INDEXER_PASS=' .env; then
     echo -n "Enter Wazuh Indexer password: "
-    read -s WAZUH_INDEXER_PASS
-    echo
+    read WAZUH_INDEXER_PASS
     sed -i "s/^WAZUH_INDEXER_PASS=.*/WAZUH_INDEXER_PASS=$WAZUH_INDEXER_PASS/" .env
 fi
 
