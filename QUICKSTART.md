@@ -38,10 +38,31 @@ sudo systemctl status llm-enrichment.service
 ```
 - Should show `active (running)`
 
+
 ## 6. View Logs
 ```
 sudo tail -f /var/log/llm-enrichment.log
 sudo tail -f /var/log/llm-enrichment-error.log
+```
+
+## 6b. Add YARA Rules
+YARA rules are used for threat detection and enrichment. Add your custom rules to the `yara_rules/` directory:
+```
+cp yara_rules/example_rule.yar yara_rules/my_custom_rule.yar
+# Edit `my_custom_rule.yar` to define your own rules
+```
+You can add as many `.yar` files as needed. The service will automatically load all rules in this directory.
+
+
+## 6a. Fix Permissions (if needed)
+If you see permission errors in the logs, run:
+```
+sudo chown -R wazuh:wazuh /home/user/Enrichment-Service
+sudo chmod o+x /home/user
+sudo chown -R wazuh:wazuh /home/user/Enrichment-Service/logs
+sudo chown wazuh:wazuh /home/user/Enrichment-Service/.env
+sudo chown -R wazuh:wazuh /home/user/Enrichment-Service/templates
+sudo systemctl restart llm-enrichment.service
 ```
 
 ## 7. Troubleshooting
