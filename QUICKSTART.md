@@ -15,7 +15,7 @@ cd Enrichment-Service
 - Run the quick deploy script:
   ```
   chmod +x start_enrichment.sh
-  ./start_enrichment.sh
+  sudo ./start_enrichment.sh
   ```
   - This will copy `.env.example` to `.env` if needed.
 - Edit `.env` with your Wazuh and Ollama settings if you need to change defaults.

@@ -99,22 +99,28 @@ def main():
     for i in range(alert_count):
         alert = base_alert.copy()
         alert["id"] = str(uuid.uuid4())
-        if i % 2 == 0:
-            alert["rule"] = dict(base_alert["rule"])
+        alert["rule"] = dict(base_alert["rule"])
+        if i % 3 == 0:
             alert["rule"]["level"] = 12
             alert["rule"]["description"] = f"Critical SSH brute force detected {i+1}"
             alert["rule"]["groups"] = ["authentication", "ssh"]
             alert["severity"] = "critical"
             alert["full_log"] = f"Multiple failed SSH login attempts detected from 192.168.1.{100+i}"
             alert["location"] = f"192.168.1.{100+i}/sshd"
-        else:
-            alert["rule"] = dict(base_alert["rule"])
+        elif i % 3 == 1:
             alert["rule"]["level"] = 8
             alert["rule"]["description"] = f"High disk usage warning {i+1}"
             alert["rule"]["groups"] = ["system", "disk"]
             alert["severity"] = "high"
             alert["full_log"] = f"Disk usage exceeded 90% on /dev/sda{i+1}"
             alert["location"] = f"192.168.1.{101+i}/disk"
+        else:
+            alert["rule"]["level"] = 5
+            alert["rule"]["description"] = f"Medium suspicious process detected {i+1}"
+            alert["rule"]["groups"] = ["process", "monitoring"]
+            alert["severity"] = "medium"
+            alert["full_log"] = f"Suspicious process 'malware{i+1}.exe' detected on host {i+1}"
+            alert["location"] = f"host{i+1}/process"
         alerts.append(alert)
 
     success_count = 0
