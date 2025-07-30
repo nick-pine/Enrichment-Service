@@ -18,8 +18,18 @@ if [ ! -f .env ]; then
     echo "Copied .env.example to .env. Please edit .env with your settings."
 fi
 
+# Detect python command
+if command -v python3 &>/dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &>/dev/null; then
+    PYTHON_CMD="python"
+else
+    echo "Python is not installed."
+    exit 1
+fi
+
 # Run auto setup
-python enrichment_service.py auto
+$PYTHON_CMD enrichment_service.py auto
 
 # Start the service
-python enrichment_service.py start
+$PYTHON_CMD enrichment_service.py start

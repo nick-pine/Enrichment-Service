@@ -21,12 +21,12 @@ See [QUICKSTART.md](QUICKSTART.md) for step-by-step setup and deployment instruc
 - To check status: `sudo systemctl status llm-enrichment.service`
 
 ### Manual CLI Usage
-- Start the service: `python enrichment_service.py start`
-- Test configuration: `python enrichment_service.py test`
-- View status: `python enrichment_service.py status`
-- Run setup wizard: `python enrichment_service.py setup`
-- Auto setup: `python enrichment_service.py auto`
-- Push test alert: `python enrichment_service.py push-alert --file sample_alert.json`
+- Start the service: `python3 enrichment_service.py start`
+- Test configuration: `python3 enrichment_service.py test`
+- View status: `python3 enrichment_service.py status`
+- Run setup wizard: `python3 enrichment_service.py setup`
+- Auto setup: `python3 enrichment_service.py auto`
+- Push test alert: `python3 enrichment_service.py push-alert --file sample_alert.json`
 
 ## Development Notes
 - Main entry point is minimal (11 lines)
