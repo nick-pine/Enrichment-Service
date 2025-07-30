@@ -35,8 +35,19 @@ else
     exit 1
 fi
 
-# Run auto setup
-$PYTHON_CMD enrichment_service.py auto
 
-# Start the service
-$PYTHON_CMD enrichment_service.py start
+# Prompt to install systemd service
+read -p "Do you want to install and start the systemd service? (y/n): " INSTALL_SERVICE
+if [[ "$INSTALL_SERVICE" =~ ^[Yy]$ ]]; then
+    if [ -f install_service.sh ]; then
+        chmod +x install_service.sh
+        sudo ./install_service.sh
+    else
+        echo "install_service.sh not found."
+    fi
+else
+    # Run auto setup
+    $PYTHON_CMD enrichment_service.py auto
+    # Start the service
+    $PYTHON_CMD enrichment_service.py start
+fi
