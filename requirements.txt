@@ -3,3 +3,4 @@ python-dotenv
 pydantic
 requests
 opensearch-py
+yara-python

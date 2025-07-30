@@ -1,19 +1,23 @@
 
+
 [Unit]
 Description=LLM Alert Enrichment Service
-After=network.target
+After=network.target wazuh-indexer.service
+
+
 
 
 [Service]
 Type=simple
-User=youruser
-WorkingDirectory=/path/to/your/project
-EnvironmentFile=/path/to/your/project/.env
-ExecStart=/usr/bin/python3 enrichment_service.py start
+User=wazuh
+Group=wazuh
+WorkingDirectory=/home/user/Enrichment-Service
+EnvironmentFile=/home/user/Enrichment-Service/.env
+ExecStart=/usr/bin/python3 /home/user/Enrichment-Service/enrichment_service.py start
 Restart=always
 RestartSec=10
-StandardOutput=journal
-StandardError=journal
+StandardOutput=append:/var/log/llm-enrichment.log
+StandardError=append:/var/log/llm-enrichment-error.log
 
 
 [Install]
