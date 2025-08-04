@@ -32,6 +32,10 @@ mcp_integration/
 # VS Code settings
 .vscode/
 
+# Dashboard and slides (presentation artifacts)
+dashboard/
+slides/
+
 # Jupyter and notebook files
 .ipynb_checkpoints/
 *.ipynb

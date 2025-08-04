@@ -5,6 +5,7 @@ import requests
 import datetime
 import uuid
 from dotenv import load_dotenv
+from pathlib import Path
 
 def check_env(var, name):
     if not var:
@@ -12,8 +13,9 @@ def check_env(var, name):
         sys.exit(1)
 
 def main():
-    # Load environment variables
-    load_dotenv(".env")
+    # Load environment variables from project root
+    env_path = Path(__file__).resolve().parent.parent / ".env"
+    load_dotenv(env_path)
 
     INDEXER_URL = os.getenv("WAZUH_INDEXER_URL")
     INDEXER_USER = os.getenv("WAZUH_INDEXER_USER")

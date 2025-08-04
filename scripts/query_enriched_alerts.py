@@ -1,11 +1,20 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
-url = "https://172.17.77.206:9200/wazuh-enriched-alerts/_search?size=5"
-user = "admin"
-password = "ibDMU16S52t4d26LCATJeJ.bdos6zTJX"
+import os
+from dotenv import load_dotenv
 
-response = requests.get(url, auth=HTTPBasicAuth(user, password), verify=False)
+# Load environment variables
+load_dotenv(".env")
+
+
+INDEXER_URL = os.getenv("WAZUH_INDEXER_URL", "https://localhost:9200")
+ENRICHED_INDEX = os.getenv("WAZUH_ENRICHED_INDEX", "wazuh-enriched-alerts")
+INDEXER_USER = os.getenv("WAZUH_INDEXER_USER", "admin")
+INDEXER_PASS = os.getenv("WAZUH_INDEXER_PASS", "changeme")
+url = f"{INDEXER_URL}/{ENRICHED_INDEX}/_search?size=5"
+
+response = requests.get(url, auth=HTTPBasicAuth(INDEXER_USER, INDEXER_PASS), verify=False)
 if response.status_code == 200:
     data = response.json()
     print("Found documents:")
