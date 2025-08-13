@@ -4,3 +4,4 @@ pydantic
 requests
 opensearch-py
 yara-python
+jsonlines

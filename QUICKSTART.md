@@ -80,5 +80,18 @@ git pull
 ./install_service.sh
 ```
 
+# 9. Wazuh Dashboard View
+- A pattern-index and custom dashboard were created to accompany the enrichment service
+- In the Wazuh Dashboard, under Saved Objects, click import and select `alert-enrichment-saved-objects.ndjson`
+
+## 10. Few-Shot Model (if needed)
+- Embeds examples of sucessful output in the model, improving performance
+- Place examples in JSON format in `format_data.py` (50-100 recommended), then run the script. By default uses synthesized examples
+- Run `few_shot.py.` Use the generated modelfile to create a new model with Ollama. Parameters can be edited for further customization
+```
+ollama create <custom-model-name> -f Modelfile.<custom-model-name>
+```
+- Edit `.env` to use the custom model 
+- PLEASE NOTE - Using output from a Llama 3 model to train/improve a non-Llama 3 model is a violation of the Meta Llama 3 License
 ---
 For advanced configuration, see the README or docs folder.
